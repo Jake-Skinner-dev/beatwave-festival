@@ -1,0 +1,760 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BeatWave Festival</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="BeatWave Festival, 27–29 August 2027, Hope Valley, Peak District. A concept festival made for a CIM marketing workshop project.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Lexend:wght@300;400;600&display=swap">
+<style>
+/* Layout: grainy rave-poster bands (orange/pink smear over deep blue) carrying chunky yellow headlines, matching the Canva deck */
+:root{
+  --ink:#0d0a24;
+  --ink-2:#17123a;
+  --blue:#3a2dff;
+  --pink:#ff3f86;
+  --orange:#ff6b3d;
+  --yellow:#ffe11a;
+  --paper:#f5f2ff;
+  --muted:#b9b3dc;
+  --line:rgba(245,242,255,.18);
+  --display:"Rubik Mono One","Arial Black",Impact,sans-serif; /* closest Google Fonts match to Phatt (Canva deck title font) */
+  --body:"Lexend",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--ink)}
+body{background:var(--ink);color:var(--paper);font-family:var(--body);font-size:16px;line-height:1.6;overflow-x:hidden}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);text-transform:uppercase;line-height:.95;margin:0;text-wrap:balance}
+h2{font-size:clamp(2rem,6vw,4rem);font-weight:900;color:var(--yellow);letter-spacing:-.01em}
+h3{font-size:1.05rem;font-weight:800;letter-spacing:.02em}
+p{margin:0}
+.eyebrow{font-family:var(--body);font-weight:600;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+html{font-synthesis:none}
+h1,h2,h3,.logo,.datecard .when,.ticker-track,.tier .price,.stop .m,.extra b{letter-spacing:-.03em;word-spacing:-.3em}
+
+/* grain + gradient bands */
+.band{position:relative;isolation:isolate}
+.band::after{content:"";position:absolute;inset:0;background-image:var(--grain);mix-blend-mode:overlay;opacity:.55;pointer-events:none;z-index:-1}
+.band--hot{background:
+  radial-gradient(60% 55% at 15% 0%,var(--orange) 0%,transparent 70%),
+  radial-gradient(50% 60% at 85% 10%,var(--pink) 0%,transparent 70%),
+  radial-gradient(70% 70% at 70% 100%,var(--blue) 0%,transparent 70%),
+  var(--ink)}
+.band--cool{background:
+  radial-gradient(55% 60% at 100% 20%,var(--pink) 0%,transparent 65%),
+  radial-gradient(60% 70% at 0% 90%,var(--blue) 0%,transparent 70%),
+  var(--ink-2)}
+.band--deep{background:radial-gradient(80% 60% at 50% 0%,rgba(58,45,255,.55),transparent 70%),var(--ink)}
+section{padding-block:clamp(64px,10vw,120px)}
+
+/* nav */
+header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(13,10,36,.78);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--ink)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.logo{font-family:var(--display);font-weight:900;font-size:1.15rem;letter-spacing:.02em;text-decoration:none;display:flex;align-items:center;gap:8px}
+.logo svg{width:22px;height:22px}
+.nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-size:.9rem}
+.nav ul a{text-decoration:none;color:var(--muted)}
+.nav ul a:hover{color:var(--paper)}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-weight:800;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:13px 20px;border-radius:999px;border:2px solid var(--yellow);background:var(--yellow);color:var(--ink);cursor:pointer;transition:transform .15s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn--ghost{background:transparent;color:var(--yellow)}
+@media (max-width:820px){.nav ul{display:none}}
+
+/* hero */
+.hero{padding-block:clamp(48px,8vw,96px) clamp(56px,8vw,96px);overflow:hidden}
+.hero-top{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.hero h1{font-size:clamp(3.4rem,15.5vw,13rem);font-weight:900;color:var(--yellow);margin-top:28px;letter-spacing:-.02em;line-height:.85;position:relative}
+.hero h1 .row2{display:block;color:transparent;-webkit-text-stroke:2px var(--yellow)}
+.hero-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;margin-top:40px;align-items:end}
+.hero-grid > *{min-width:0}
+.lede{font-size:clamp(1.1rem,2vw,1.35rem);max-width:34ch;font-weight:300}
+.lede strong{font-weight:600}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.datecard{border:1px solid var(--line);border-radius:4px;padding:22px;background:rgba(13,10,36,.55);backdrop-filter:blur(4px)}
+.datecard .when{font-family:var(--display);font-weight:900;font-size:clamp(1.4rem,3vw,2rem);color:var(--yellow);text-transform:uppercase;line-height:1}
+.datecard .where{color:var(--muted);margin-top:8px;font-size:.92rem}
+.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:20px;font-variant-numeric:tabular-nums}
+.countdown div{text-align:center;border-top:2px solid var(--yellow);padding-top:8px}
+.countdown b{display:block;font-family:var(--display);font-size:clamp(1.3rem,3vw,1.9rem);font-weight:800}
+.countdown span{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.star{position:absolute;color:var(--yellow);pointer-events:none}
+.star--a{width:clamp(70px,11vw,150px);right:4%;top:24%;animation:spin 28s linear infinite}
+.sparkle{position:absolute;color:#fff;pointer-events:none}
+.sparkle--a{width:42px;left:52%;top:30%}
+.sparkle--b{width:26px;left:3%;bottom:14%}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (max-width:820px){.hero-grid{grid-template-columns:1fr}.sparkle--a{display:none}}
+
+/* marquee */
+.ticker{background:var(--yellow);color:var(--ink);overflow:hidden;border-block:2px solid var(--ink)}
+.ticker-track{display:flex;gap:40px;white-space:nowrap;padding-block:12px;font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:1rem;animation:slide 32s linear infinite;width:max-content}
+.ticker-track span{display:inline-flex;align-items:center;gap:40px}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* section heads */
+.head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:48px}
+.head p{max-width:46ch;color:var(--muted)}
+
+/* line-up drops */
+.drops{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.drop{border:1px solid var(--line);border-radius:4px;padding:22px;min-height:240px;display:flex;flex-direction:column;gap:14px;background:rgba(13,10,36,.45);min-width:0}
+.drop .date{font-family:var(--display);font-weight:800;font-size:.8rem;letter-spacing:.08em;color:var(--yellow)}
+.drop h3{font-size:1.25rem}
+.drop p{color:var(--muted);font-size:.92rem}
+.redact{margin-top:auto;display:flex;flex-direction:column;gap:6px}
+.redact i{display:block;height:12px;border-radius:2px;background:repeating-linear-gradient(90deg,var(--paper) 0 6px,transparent 6px 8px);opacity:.25}
+.redact i:nth-child(2){width:72%}.redact i:nth-child(3){width:48%}
+.drop--now{background:var(--yellow);color:var(--ink);border-color:var(--yellow)}
+.drop--now .date,.drop--now p{color:var(--ink)}
+.drop--now .redact i{background:repeating-linear-gradient(90deg,var(--ink) 0 6px,transparent 6px 8px);opacity:.35}
+@media (max-width:980px){.drops{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:540px){.drops{grid-template-columns:1fr}}
+
+/* pillars */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line)}
+.pillar{padding:32px 28px 8px 0;border-right:1px solid var(--line);min-width:0}
+.pillar + .pillar{padding-left:28px}
+.pillar:last-child{border-right:0}
+.pillar h3{font-size:clamp(1.6rem,3.2vw,2.4rem);font-weight:900;color:var(--yellow)}
+.pillar .kicker{color:var(--paper);font-weight:600;margin-top:16px}
+.pillar ul{margin:16px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;color:var(--muted)}
+.pillar li{display:flex;gap:10px}
+.pillar li::before{content:"";flex:0 0 8px;height:8px;margin-top:.55em;background:var(--pink);transform:rotate(45deg)}
+@media (max-width:820px){.pillars{grid-template-columns:1fr}.pillar,.pillar + .pillar{padding:28px 0;border-right:0;border-bottom:1px solid var(--line)}}
+
+/* tickets */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tier{border:1px solid var(--line);border-radius:4px;padding:28px;display:flex;flex-direction:column;gap:14px;background:rgba(13,10,36,.6);min-width:0}
+.tier .chip{align-self:flex-start;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px;border-radius:999px;border:1px solid currentColor;color:var(--muted)}
+.tier .price{font-family:var(--display);font-weight:900;font-size:clamp(2.4rem,4.5vw,3.4rem);line-height:1;font-variant-numeric:tabular-nums}
+.tier .price small{font-size:.9rem;font-weight:500;color:var(--muted)}
+.tier .opens{font-size:.9rem;color:var(--muted)}
+.tier ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px;font-size:.93rem;border-top:1px solid var(--line);padding-top:16px}
+.tier--hero{background:var(--yellow);color:var(--ink);border-color:var(--yellow);position:relative}
+.tier--hero .chip{color:var(--ink)}
+.tier--hero .price small,.tier--hero .opens{color:var(--ink)}
+.tier--hero ul{border-color:rgba(13,10,36,.25)}
+.extras{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+.extra{border:1px dashed var(--line);border-radius:4px;padding:18px 20px;min-width:0}
+.extra b{font-family:var(--display);font-size:.85rem;text-transform:uppercase;letter-spacing:.04em;color:var(--yellow)}
+.extra p{font-size:.9rem;color:var(--muted);margin-top:6px}
+@media (max-width:900px){.tiers,.extras{grid-template-columns:1fr}}
+
+/* road map */
+.road{display:grid;grid-template-columns:repeat(6,1fr);gap:0;position:relative}
+.road::before{content:"";position:absolute;left:0;right:0;top:15px;height:2px;background:linear-gradient(90deg,var(--orange),var(--pink),var(--blue),var(--yellow))}
+.stop{padding-right:16px;min-width:0}
+.stop .dot{width:32px;height:32px;border-radius:50%;background:var(--ink);border:2px solid var(--yellow);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:.75rem;color:var(--yellow);position:relative}
+.stop--fest .dot{background:var(--yellow);color:var(--ink)}
+.stop .m{font-family:var(--display);font-weight:800;text-transform:uppercase;margin-top:16px;font-size:.95rem}
+.stop p{font-size:.88rem;color:var(--muted);margin-top:6px}
+@media (max-width:900px){
+  .road{grid-template-columns:1fr;gap:22px}
+  .road::before{left:15px;right:auto;top:0;bottom:0;width:2px;height:auto;background:linear-gradient(180deg,var(--orange),var(--pink),var(--blue),var(--yellow))}
+  .stop{display:grid;grid-template-columns:32px 1fr;column-gap:16px}
+  .stop .m{margin-top:4px}
+  .stop p{grid-column:2}
+}
+
+/* local heroes + partners */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.panel{border-radius:4px;padding:clamp(24px,4vw,44px);min-width:0;display:flex;flex-direction:column;gap:16px}
+.panel--local{background:var(--paper);color:var(--ink)}
+.panel--local h2{color:var(--ink)}
+.panel--local .eyebrow{color:#5b5487}
+.panel--partner{border:1px solid var(--line);background:rgba(13,10,36,.55)}
+.panel ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.pk{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding-top:12px}
+.pk span:last-child{color:var(--muted);text-align:right}
+.panel--local li{display:flex;gap:10px}
+.panel--local li::before{content:"";flex:0 0 8px;height:8px;margin-top:.55em;background:var(--orange);border-radius:50%}
+.panel .btn{align-self:flex-start;margin-top:auto}
+.panel--local .btn{background:var(--ink);border-color:var(--ink);color:var(--yellow)}
+@media (max-width:860px){.split{grid-template-columns:1fr}}
+
+/* sponsors */
+.sponsors{display:grid;grid-template-columns:1.4fr repeat(2,1fr);gap:16px}
+.sponsor{border:1px solid var(--line);border-radius:4px;padding:24px;display:flex;flex-direction:column;gap:12px;background:rgba(13,10,36,.6);min-width:0}
+.sponsor--headline{grid-row:span 2;background:var(--paper);color:var(--ink);border-color:var(--paper);justify-content:space-between}
+.sponsor .role{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.sponsor--headline .role{color:#5b5487}
+.sponsor p{font-size:.92rem;color:var(--muted)}
+.sponsor--headline p{color:var(--ink);font-size:1.02rem}
+.plogo{display:block;align-self:flex-start;height:40px;width:auto;max-width:100%;color:var(--paper)}
+.sponsor--headline .plogo{height:clamp(90px,12vw,140px);color:var(--ink)}
+.logo--intel{color:#6fb6ff;height:44px}
+.logo--starlink{height:24px;margin-block:8px}
+.logo--klarna{color:#ffb3c7;height:42px}
+.logo--uber{height:36px;margin-block:2px}
+.sponsor-note{font-size:.8rem;color:var(--muted);margin:14px 0 48px}
+@media (max-width:900px){.sponsors{grid-template-columns:1fr 1fr}.sponsor--headline{grid-column:1/-1;grid-row:auto}}
+@media (max-width:540px){.sponsors{grid-template-columns:1fr}}
+
+/* faq */
+.faq{display:grid;grid-template-columns:1fr 2fr;gap:40px}
+.faq > *{min-width:0}
+details{border-bottom:1px solid var(--line);padding-block:18px}
+details:first-child{border-top:1px solid var(--line)}
+summary{cursor:pointer;font-weight:600;font-size:1.05rem;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--display);color:var(--yellow);font-size:1.3rem;line-height:1}
+details[open] summary::after{content:"–"}
+details p{color:var(--muted);margin-top:10px;max-width:62ch}
+@media (max-width:820px){.faq{grid-template-columns:1fr}}
+
+/* signup */
+.signup{text-align:left}
+.signup h2{font-size:clamp(2.2rem,8vw,6rem)}
+.signup form{display:flex;gap:10px;flex-wrap:wrap;margin-top:32px;max-width:640px}
+.signup input{flex:1 1 260px;min-width:0;font:inherit;padding:14px 18px;border-radius:999px;border:2px solid var(--paper);background:transparent;color:var(--paper)}
+.signup input::placeholder{color:var(--muted)}
+.signup .note{margin-top:14px;font-size:.9rem;color:var(--muted);min-height:1.6em}
+.signup .note.ok{color:var(--yellow)}
+
+footer{border-top:1px solid var(--line);padding-block:36px;font-size:.85rem;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+footer .logo{color:var(--paper)}
+.checks{display:flex;gap:4px}
+.checks i{width:14px;height:14px;background:var(--paper)}
+.checks i:nth-child(even){background:transparent;border:1px solid var(--paper)}
+
+
+/* concept banner */
+.concept{background:var(--paper);color:var(--ink);font-size:.82rem;text-align:center;padding-block:8px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.concept b{font-weight:600}
+.status{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;padding:6px 12px;border-radius:999px;background:var(--yellow);color:var(--ink)}
+.status i{width:8px;height:8px;border-radius:50%;background:var(--pink);animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.25}}
+
+/* line-up */
+.days{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.day{border:1px solid var(--line);border-radius:4px;background:rgba(13,10,36,.6);display:flex;flex-direction:column;min-width:0}
+.day-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:18px 22px;border-bottom:1px solid var(--line)}
+.day-head h3{font-size:1.3rem;color:var(--yellow)}
+.day-head span{color:var(--muted);font-size:.85rem}
+.headliner{padding:22px;border-bottom:1px solid var(--line)}
+.headliner .eyebrow{display:block;margin-bottom:8px}
+.headliner strong{display:block;font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(1.5rem,2.6vw,2.1rem);line-height:1;letter-spacing:-.03em;word-spacing:-.25em;text-wrap:balance}
+.headliner small{display:block;margin-top:8px;color:var(--muted);font-size:.86rem}
+.acts{list-style:none;margin:0;padding:8px 22px 22px;display:flex;flex-direction:column}
+.acts li{display:grid;grid-template-columns:96px 1fr;gap:12px;padding-block:10px;border-bottom:1px dashed var(--line);font-size:.95rem}
+.acts li:last-child{border-bottom:0}
+.acts .stg{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;padding-top:3px}
+.acts b{font-weight:600}
+.acts em{display:block;font-style:normal;color:var(--muted);font-size:.82rem}
+@media (max-width:980px){.days{grid-template-columns:1fr}}
+
+/* stages */
+.stages{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.stage{border-top:3px solid var(--yellow);padding-top:16px;min-width:0;display:flex;flex-direction:column;gap:8px}
+.stage .n{font-family:var(--display);color:var(--yellow);font-size:1.6rem;line-height:1}
+.stage h3{font-size:1rem}
+.stage p{color:var(--muted);font-size:.9rem}
+.stage .by{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--paper);opacity:.75;margin-top:auto}
+@media (max-width:980px){.stages{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:540px){.stages{grid-template-columns:1fr}}
+
+/* map */
+.mapfig{margin:0;border:1px solid var(--line);border-radius:4px;overflow:hidden;background:var(--ink)}
+.mapfig img{display:block;width:100%;height:auto}
+.mapfig figcaption{padding:12px 16px;font-size:.82rem;color:var(--muted)}
+
+/* travel */
+.travel{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.tcard{border:1px solid var(--line);border-radius:4px;padding:22px;background:rgba(13,10,36,.55);display:flex;flex-direction:column;gap:10px;min-width:0}
+.tcard b.k{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:1rem;color:var(--yellow);letter-spacing:-.02em}
+.tcard p{color:var(--muted);font-size:.92rem}
+.tcard .big{font-family:var(--display);font-size:1.8rem;line-height:1;color:var(--paper)}
+.times{margin-top:16px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.times div{padding:16px 18px;border-right:1px solid var(--line);min-width:0}
+.times div:last-child{border-right:0}
+.times b{display:block;font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:.85rem;color:var(--yellow)}
+.times span{color:var(--muted);font-size:.9rem}
+@media (max-width:900px){.travel,.times{grid-template-columns:1fr 1fr}.times div:nth-child(2){border-right:0}.times div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+@media (max-width:540px){.travel,.times{grid-template-columns:1fr}.times div{border-right:0;border-bottom:1px solid var(--line)}}
+
+/* planet */
+.planet-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+.planet-grid > *{min-width:0}
+.pledge{background:var(--yellow);color:var(--ink);border-radius:4px;padding:clamp(24px,4vw,40px);display:flex;flex-direction:column;gap:12px}
+.pledge .big{font-family:var(--display);font-size:clamp(2.6rem,6vw,4.4rem);line-height:.95;letter-spacing:-.03em}
+.pledge p{font-size:1.02rem}
+.targets{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px}
+.targets div{border-top:2px solid var(--ink);padding-top:8px;font-size:.9rem}
+.targets b{display:block;font-family:var(--display);font-weight:400;font-size:1.5rem;letter-spacing:-.03em}
+.green{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.green li{display:grid;grid-template-columns:150px 1fr;gap:16px;padding-block:16px;border-bottom:1px solid var(--line)}
+.green li:first-child{border-top:1px solid var(--line)}
+.green b{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:.85rem;color:var(--yellow);letter-spacing:-.02em}
+.green span{color:var(--muted);font-size:.95rem}
+@media (max-width:860px){.planet-grid{grid-template-columns:1fr}.green li{grid-template-columns:1fr;gap:4px}}
+
+.soldout{opacity:.75}
+.soldout .price{text-decoration:line-through;text-decoration-thickness:4px}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="asterisk" viewBox="0 0 100 100"><g stroke="currentColor" stroke-width="9" stroke-linecap="square"><line x1="50" y1="4" x2="50" y2="96"/><line x1="4" y1="50" x2="96" y2="50"/><line x1="17" y1="17" x2="83" y2="83"/><line x1="83" y1="17" x2="17" y2="83"/></g></symbol>
+  <symbol id="spark" viewBox="0 0 100 100"><path fill="currentColor" d="M50 0C54 38 62 46 100 50C62 54 54 62 50 100C46 62 38 54 0 50C38 46 46 38 50 0Z"/></symbol>
+</svg>
+
+<div class="concept"><b>Concept site:</b> made for a CIM Marketing Executive workshop project. BeatWave is not a real event and no tickets are sold here.</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top"><svg style="color:var(--yellow)"><use href="#asterisk"/></svg>BeatWave</a>
+    <ul>
+      <li><a href="#lineup">Line-up</a></li>
+      <li><a href="#stages">Stages</a></li>
+      <li><a href="#tickets">Tickets</a></li>
+      <li><a href="#travel">Getting there</a></li>
+      <li><a href="#planet">Planet</a></li>
+      <li><a href="#partners">Partners</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a class="btn" href="#tickets">Tickets</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="band band--hot hero">
+    <svg class="star star--a" aria-hidden="true"><use href="#asterisk"/></svg>
+    <svg class="sparkle sparkle--a" aria-hidden="true"><use href="#spark"/></svg>
+    <svg class="sparkle sparkle--b" aria-hidden="true"><use href="#spark"/></svg>
+    <div class="wrap">
+      <div class="hero-top">
+        <span class="eyebrow">TechTrendz Events presents</span>
+        <span class="status"><i></i>Full line-up out now</span>
+      </div>
+      <h1>Beat<span class="row2">Wave</span></h1>
+      <div class="hero-grid">
+        <div>
+          <p class="lede">Linkin Park × Fred again.., <strong>Charli XCX</strong>, <strong>Dave &amp; Drake</strong> and <strong>Olivia Dean</strong>. Five stages, 500,000 fans and three days in the Peak District.</p>
+          <div class="cta-row">
+            <a class="btn" href="#lineup">See the full line-up</a>
+            <a class="btn btn--ghost" href="#tickets">Final tickets</a>
+          </div>
+        </div>
+        <div class="datecard">
+          <div class="when">27–29 August 2027</div>
+          <div class="where">Hope Valley, Peak District · Gates open Friday 12pm</div>
+          <div class="countdown" id="countdown" aria-live="off">
+            <div><b id="cd-d">–</b><span>Days</span></div>
+            <div><b id="cd-h">–</b><span>Hours</span></div>
+            <div><b id="cd-m">–</b><span>Mins</span></div>
+            <div><b id="cd-s">–</b><span>Secs</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>Linkin Park × Fred again.. <svg width="22" height="22"><use href="#asterisk"/></svg> Charli XCX <svg width="22" height="22"><use href="#asterisk"/></svg> Dave &amp; Drake <svg width="22" height="22"><use href="#asterisk"/></svg> Olivia Dean <svg width="22" height="22"><use href="#asterisk"/></svg> Hope Valley · 27–29 Aug <svg width="22" height="22"><use href="#asterisk"/></svg></span>
+      <span>Linkin Park × Fred again.. <svg width="22" height="22"><use href="#asterisk"/></svg> Charli XCX <svg width="22" height="22"><use href="#asterisk"/></svg> Dave &amp; Drake <svg width="22" height="22"><use href="#asterisk"/></svg> Olivia Dean <svg width="22" height="22"><use href="#asterisk"/></svg> Hope Valley · 27–29 Aug <svg width="22" height="22"><use href="#asterisk"/></svg></span>
+    </div>
+  </div>
+
+  <section class="band band--deep" id="lineup">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="eyebrow">Line-up 2027</span>
+          <h2>Full<br>line-up</h2>
+        </div>
+        <p>Every act, every stage. Set times are below and in the BeatWave app, where you can build your own schedule and get alerts before each set.</p>
+      </div>
+      <div class="days">
+        <article class="day">
+          <div class="day-head"><h3>Friday</h3><span>27 August</span></div>
+          <div class="headliner">
+            <span class="eyebrow">Headliner · The Wave · 21:30</span>
+            <strong>Linkin Park × Fred again..</strong>
+            <small>Rock meets rave. A one-night-only joint set.</small>
+          </div>
+          <ul class="acts">
+            <li><span class="stg">The Wave</span><span><b>Wet Leg</b><em>19:15</em></span></li>
+            <li><span class="stg">Pulse</span><span><b>Sammy Virji</b><em>22:00</em></span></li>
+            <li><span class="stg">Frequency</span><span><b>Rising stars</b><em>12 new acts, from 12:30</em></span></li>
+            <li><span class="stg">Afterdark</span><span><b>Nia Archives</b><em>00:30 until 3am</em></span></li>
+          </ul>
+        </article>
+        <article class="day">
+          <div class="day-head"><h3>Saturday</h3><span>28 August</span></div>
+          <div class="headliner">
+            <span class="eyebrow">Headliner · The Wave · 21:45</span>
+            <strong>Charli XCX</strong>
+            <small>5x BRIT winner in 2025.</small>
+          </div>
+          <ul class="acts">
+            <li><span class="stg">The Wave</span><span><b>RAYE</b><em>19:30</em></span></li>
+            <li><span class="stg">Sunset</span><span><b>PinkPantheress</b><em>19:45</em></span></li>
+            <li><span class="stg">Pulse</span><span><b>Becky Hill</b><em>22:15</em></span></li>
+            <li><span class="stg">Frequency</span><span><b>Rising stars</b><em>12 new acts, from 12:30</em></span></li>
+          </ul>
+        </article>
+        <article class="day">
+          <div class="day-head"><h3>Sunday</h3><span>29 August</span></div>
+          <div class="headliner">
+            <span class="eyebrow">Headliner · The Wave · 21:30</span>
+            <strong>Dave &amp; Drake</strong>
+            <small>An exclusive joint set. Plus Olivia Dean's sunset set.</small>
+          </div>
+          <ul class="acts">
+            <li><span class="stg">The Wave</span><span><b>Central Cee</b><em>19:30</em></span></li>
+            <li><span class="stg">Sunset</span><span><b>Olivia Dean</b><em>Grammy winner 2026 · 19:45</em></span></li>
+            <li><span class="stg">Frequency</span><span><b>Rising stars</b><em>12 new acts, from 12:30</em></span></li>
+            <li><span class="stg">Afterdark</span><span><b>Secret set</b><em>Revealed in the app at 6pm</em></span></li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--cool" id="stages">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="eyebrow">Five stages</span>
+          <h2>Find your<br>stage</h2>
+        </div>
+        <p>The arena covers nearly 2 km of fields between Hope and Bamford, with the hills on every side.</p>
+      </div>
+      <div class="stages">
+        <div class="stage"><span class="n">1</span><h3>The Wave</h3><p>The main stage, set in a natural bowl in the valley.</p><span class="by">Livestreamed on Apple Music</span></div>
+        <div class="stage"><span class="n">2</span><h3>Pulse</h3><p>The dance and electronic tent, with giant LED screens.</p><span class="by">Visuals powered by Intel</span></div>
+        <div class="stage"><span class="n">3</span><h3>Frequency</h3><p>New music and rising stars, all day, every day.</p><span class="by">Curated with Apple Music</span></div>
+        <div class="stage"><span class="n">4</span><h3>Sunset</h3><p>An open-air stage facing the hills for golden-hour sets.</p><span class="by">Runs on solar power</span></div>
+        <div class="stage"><span class="n">5</span><h3>Afterdark</h3><p>Late-night sets once the main stages finish.</p><span class="by">Until 3am</span></div>
+      </div>
+      <figure class="mapfig" style="margin-top:48px">
+        <img src="sitemap.jpg" width="1920" height="1080" alt="BeatWave site map on satellite imagery of the Hope Valley, showing the arena with five stages between Hope and Bamford stations, three general campsites, the VIP Village, entry gates and the coach park." loading="lazy">
+        <figcaption>Site map. Imagery: Esri, Maxar, Earthstar Geographics, and the GIS User Community.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="band band--deep" id="experience">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="eyebrow">Why BeatWave</span>
+          <h2>More than<br>a festival</h2>
+        </div>
+        <p>BeatWave is built around four things: the experience, finding new music, the people you share it with, and looking after the valley.</p>
+      </div>
+      <div class="pillars">
+        <div class="pillar">
+          <h3>Experience</h3>
+          <p class="kicker">Immersive stages and tech you'll actually use.</p>
+          <ul>
+            <li>The BeatWave app: set times, alerts, live maps and cashless payments</li>
+            <li>Free Starlink Wi-Fi across the whole site</li>
+            <li>The AR Playground and a drone light show over the valley</li>
+          </ul>
+        </div>
+        <div class="pillar">
+          <h3>Discovery</h3>
+          <p class="kicker">Huge names next to the artists blowing up right now.</p>
+          <ul>
+            <li>36 rising acts on the Frequency stage</li>
+            <li>Official playlists on Apple Music</li>
+            <li>Two exclusive joint sets you won't see anywhere else</li>
+          </ul>
+        </div>
+        <div class="pillar">
+          <h3>Community</h3>
+          <p class="kicker">Built for groups, and safe for everyone.</p>
+          <ul>
+            <li>Crew plans in the app to find your friends</li>
+            <li>The Local Heroes food and market zone</li>
+            <li>Welfare teams, free water and clear safety info</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--hot" id="tickets">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="eyebrow">Tickets · 18+</span>
+          <h2>Final<br>tickets</h2>
+        </div>
+        <p>Klarna Pay in 6 closed on 28 February, so every payment plan is paid off before the festival. Tickets bought now are paid in full.</p>
+      </div>
+      <div class="tiers">
+        <article class="tier">
+          <span class="chip">Final release</span>
+          <h3>General admission</h3>
+          <div class="price">£599</div>
+          <p class="opens">Weekend arena entry.</p>
+          <ul>
+            <li>Friday to Sunday arena entry</li>
+            <li>All five stages</li>
+            <li>BeatWave app and free Wi-Fi</li>
+          </ul>
+        </article>
+        <article class="tier tier--hero">
+          <span class="chip">92% sold</span>
+          <h3>Camping</h3>
+          <div class="price">£750</div>
+          <p class="opens">Selling fast. Campsites open Thursday 2pm.</p>
+          <ul>
+            <li>Everything in General admission</li>
+            <li>Camping from Thursday to Monday</li>
+            <li>Showers, phone charging and water refills</li>
+          </ul>
+        </article>
+        <article class="tier soldout">
+          <span class="chip">Sold out</span>
+          <h3>VIP access</h3>
+          <div class="price">£1,250</div>
+          <p class="opens">Join the app waiting list for returns.</p>
+          <ul>
+            <li>Pre-pitched bell tent in the VIP Village</li>
+            <li>Fast-track entry and VIP viewing platform</li>
+            <li>Private bars, lounge and hot showers</li>
+          </ul>
+        </article>
+      </div>
+      <div class="extras">
+        <div class="extra"><b>Day tickets</b><p>£249 per day. Saturday is nearly sold out.</p></div>
+        <div class="extra"><b>Crew of 5</b><p>Book five camping tickets together and save 10%.</p></div>
+        <div class="extra"><b>Student price</b><p>£20 off any weekend ticket with a valid student card.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--deep" id="travel">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="eyebrow">Getting there</span>
+          <h2>Leave the<br>car at home</h2>
+        </div>
+        <p>There are no cars in the festival fields. Come by train, shuttle or coach, and book everything in the app.</p>
+      </div>
+      <div class="travel">
+        <div class="tcard"><b class="k">Train</b><span class="big">10 min</span><p>Shuttle trains every 10 minutes from Manchester Piccadilly and Sheffield to Hope and Bamford stations, then a short walk to the gates.</p></div>
+        <div class="tcard"><b class="k">Uber shuttles</b><span class="big">Free</span><p>Uber shuttle buses run from both stations and the Hathersage park and ride. Electric Uber Green rides wait at the coach park.</p></div>
+        <div class="tcard"><b class="k">Coach</b><span class="big">20+ cities</span><p>Official coaches from cities across the UK, including London, Birmingham, Leeds, Liverpool and Newcastle.</p></div>
+        <div class="tcard"><b class="k">Car</b><span class="big">P&amp;R only</span><p>Drivers use the Hathersage park and ride. Pre-book your parking pass in the app.</p></div>
+      </div>
+      <div class="times">
+        <div><b>Thursday 2pm</b><span>Campsites open</span></div>
+        <div><b>Friday 12pm</b><span>Arena gates open</span></div>
+        <div><b>Sunday 11pm</b><span>Last set on The Wave</span></div>
+        <div><b>Monday 12pm</b><span>Campsites close</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--cool" id="planet">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="eyebrow">Planet</span>
+          <h2>Leave no<br>trace</h2>
+        </div>
+        <p>BeatWave sits in the Peak District National Park. We're working with landowners, the National Park Authority and local groups to leave the valley as we found it.</p>
+      </div>
+      <div class="planet-grid">
+        <div class="pledge">
+          <span class="eyebrow" style="color:var(--ink)">£1 from every ticket</span>
+          <span class="big">£500,000</span>
+          <p>for restoring the Peak District's moors.</p>
+          <div class="targets">
+            <div><b>90%</b>of fans arrive by train, shuttle or shared transport</div>
+            <div><b>75%</b>of waste recycled or composted</div>
+            <div><b>0</b>single-use plastic on site</div>
+            <div><b>50%</b>of food traders from within 30 miles</div>
+          </div>
+        </div>
+        <ul class="green">
+          <li><b>Energy</b><span>The Sunset stage runs on solar panels and batteries. Every other stage uses renewable power or HVO biofuel instead of diesel.</span></li>
+          <li><b>Cups</b><span>Reusable cups with a £3 deposit, paid back to your wristband when you return them.</span></li>
+          <li><b>Tents</b><span>No Tent Left Behind: a £10 tent deposit, refunded when you take your tent home. Tents left behind go to charity.</span></li>
+          <li><b>Water</b><span>Free refill points across the arena and campsites. Bring a bottle.</span></li>
+          <li><b>Land</b><span>Every field is restored after the festival, as agreed with the landowners and the National Park Authority.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--deep" id="partners">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="eyebrow">Target partners · concept</span>
+          <h2>Powered<br>by</h2>
+        </div>
+        <p>Five partners help run BeatWave, from getting you there to keeping you connected in the hills.</p>
+      </div>
+      <div class="sponsors">
+        <article class="sponsor sponsor--headline">
+          <span class="role">Headline partner</span>
+          <svg class="plogo logo--apple" viewBox="2.2 0 19.6 24" role="img" aria-label="Apple" fill="currentColor"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+          <p>BeatWave presented by Apple Music: main stage livestreams, artist sessions and the official playlists.</p>
+        </article>
+        <article class="sponsor">
+          <span class="role">Tech partner</span>
+          <svg class="plogo logo--intel" viewBox="0 7.35 24 9.3" role="img" aria-label="Intel" fill="currentColor"><path d="M20.42 7.345v9.18h1.651v-9.18zM0 7.475v1.737h1.737V7.474zm9.78.352v6.053c0 .513.044.945.13 1.292.087.34.235.618.44.828.203.21.475.359.803.451.334.093.754.136 1.255.136h.216v-1.533c-.24 0-.445-.012-.593-.037a.672.672 0 0 1-.39-.173.693.693 0 0 1-.173-.377 4.002 4.002 0 0 1-.037-.606v-2.182h1.193v-1.416h-1.193V7.827zm-3.505 2.312c-.396 0-.76.08-1.082.241-.327.161-.6.384-.822.668l-.087.117v-.902H2.658v6.256h1.639v-3.214c.018-.588.16-1.02.433-1.299.29-.297.642-.445 1.044-.445.476 0 .841.149 1.082.433.235.284.359.686.359 1.2v3.324h1.663V12.97c.006-.89-.229-1.595-.686-2.09-.458-.495-1.1-.742-1.917-.742zm10.065.006a3.252 3.252 0 0 0-2.306.946c-.29.29-.525.637-.692 1.033a3.145 3.145 0 0 0-.254 1.273c0 .452.08.878.241 1.274.161.395.39.742.674 1.032.284.29.637.526 1.045.693.408.173.86.26 1.342.26 1.397 0 2.262-.637 2.782-1.23l-1.187-.904c-.248.297-.841.699-1.583.699-.464 0-.847-.105-1.138-.321a1.588 1.588 0 0 1-.593-.872l-.019-.056h4.915v-.587c0-.451-.08-.872-.235-1.267a3.393 3.393 0 0 0-.661-1.033 3.013 3.013 0 0 0-1.02-.692 3.345 3.345 0 0 0-1.311-.248zm-16.297.118v6.256h1.651v-6.256zm16.278 1.286c1.132 0 1.664.797 1.664 1.255l-3.32.006c0-.458.525-1.255 1.656-1.261zm7.073 3.814a.606.606 0 0 0-.606.606.606.606 0 0 0 .606.606.606.606 0 0 0 .606-.606.606.606 0 0 0-.606-.606zm-.008.105a.5.5 0 0 1 .002 0 .5.5 0 0 1 .5.501.5.5 0 0 1-.5.5.5.5 0 0 1-.5-.5.5.5 0 0 1 .498-.5zm-.233.155v.699h.13v-.285h.093l.173.285h.136l-.18-.297a.191.191 0 0 0 .118-.056c.03-.03.05-.074.05-.136 0-.068-.02-.117-.063-.154-.037-.038-.105-.056-.185-.056zm.13.099h.154c.019 0 .037.006.056.012a.064.064 0 0 1 .037.031c.013.013.012.031.012.056a.124.124 0 0 1-.012.055.164.164 0 0 1-.037.031c-.019.006-.037.013-.056.013h-.154Z"/></svg>
+          <p>Powers the AR Playground, festival app, giant screens and a drone light show over the valley.</p>
+        </article>
+        <article class="sponsor">
+          <span class="role">Connectivity partner</span>
+          <svg class="plogo logo--starlink" viewBox="8 45.5 304 39" role="img" aria-label="Starlink" fill="currentColor"><path d="m 10.0029,71.7839 h 6.3063 c 0.2252,2.027 0.9009,3.3784 1.8018,4.0541 0.9009,0.9008 2.4774,1.1261 4.5044,1.1261 3.8288,0 5.6306,-1.5766 5.6306,-4.5045 0,-1.3513 -0.4504,-2.4774 -1.1261,-3.1531 -1.995905,-1.553778 -4.567208,-1.70507 -6.9819,-2.027 -6.3063,-1.1261 -9.4594,-4.2793 -9.4594,-9.6846 0,-3.1531 1.1261,-5.8558 3.1531,-7.6576 2.2522,-1.8018 4.9549,-2.9279 8.5585,-2.9279 3.3783,0 6.081,0.9009 8.108,2.7027 2.027,1.8018 3.1532,4.5045 3.3784,7.6576 h -6.3063 c 0,-1.8018 -0.6756,-2.9279 -1.5765,-3.6036 C 25.0929,53.0904 23.7415,52.64 22.165,52.64 c -1.8018,0 -2.9279,0.4504 -3.8288,1.1261 -0.9009,0.6757 -1.3513,1.8018 -1.3513,3.3783 0,1.1262 0.4504,2.2523 1.1261,2.9279 0.6756,0.6757 2.027,1.1262 3.6035,1.5766 l 3.6036,0.6757 c 6.081,1.1261 9.0089,4.2792 9.0089,9.9098 0,3.6035 -1.1261,6.3062 -3.3783,8.108 -2.2523,1.8018 -5.1802,2.7027 -9.0089,2.7027 -7.359467,0.296389 -11.311292,-4.27196 -11.9369,-11.2612 z"/><path d="M 65.1825,53.3157 V 82.5946 H 58.4258 V 53.3157 h -9.0089 v -5.8559 h 24.5493 v 5.8559 z"/><path d="m 93.1101,75.6127 -2.027,6.7567 H 84.1012 L 96.4885,47.4598 h 5.4055 l 12.387,34.9096 h -6.982 l -2.027,-6.7567 z M 99.1912,56.694 94.9119,70.2074 h 8.5581 z"/><path d="m 136.803,68.4056 v 14.189 h -6.531 V 47.6851 h 13.288 c 3.378,0 6.081,0.9008 8.108,2.7026 2.027,1.8018 3.153,4.5045 3.153,7.6576 0,2.2523 -0.45,4.2792 -1.576,5.8558 -1.126,1.5766 -2.703,2.7027 -4.505,3.6036 l 7.658,15.3152 h -7.658 l -6.531,-14.1891 h -5.406 z m 6.307,-5.6306 c 1.576,0 2.702,-0.4504 3.603,-1.3513 0.901,-0.9009 1.352,-2.027 1.352,-3.6036 0,-1.3513 -0.451,-2.4775 -1.352,-3.3784 -0.901,-0.9008 -2.027,-1.3513 -3.603,-1.3513 h -6.307 v 9.6846 z"/><path d="m 179.371,47.4598 v 29.279 h 15.315 v 5.8558 H 172.839 V 47.6851 h 6.532 z"/><path d="m 218.559,47.4598 v 35.1348 h -6.531 V 47.6851 h 6.531 z"/><path d="m 263.829,82.5946 h -6.531 L 244.46,60.748 v 21.8466 h -6.982 V 47.6851 h 6.532 l 12.837,21.8466 V 47.6851 h 6.532 v 34.9095 z"/><path d="m 289.054,65.885 v 16.4844 h -6.531 V 47.4598 h 6.531 V 64.07 l 12.162,-16.6102 h 7.883 L 296.538,65.024 310,82.3694 h -7.658 z"/></svg>
+          <p>Satellite Wi-Fi across the whole site, so you stay connected in the Peak District.</p>
+        </article>
+        <article class="sponsor">
+          <span class="role">Payments partner</span>
+          <svg class="plogo logo--klarna" viewBox="0 2 24 20" role="img" aria-label="Klarna" fill="currentColor"><path d="M4.592 2v20H0V2h4.592zm11.46 0c0 4.194-1.583 8.105-4.415 11.068l-.278.283L17.702 22h-5.668l-6.893-9.4 1.779-1.332c2.858-2.14 4.535-5.378 4.637-8.924L11.562 2h4.49zM21.5 17a2.5 2.5 0 110 5 2.5 2.5 0 010-5z"/></svg>
+          <p>Cashless wristbands and Klarna fast lanes at the bars. Pay in 6 was only available at BeatWave.</p>
+        </article>
+        <article class="sponsor">
+          <span class="role">Travel partner</span>
+          <svg class="plogo logo--uber" viewBox="0 7.97 24 8.05" role="img" aria-label="Uber" fill="currentColor"><path d="M0 7.97v4.958c0 1.867 1.302 3.101 3 3.101.826 0 1.562-.316 2.094-.87v.736H6.27V7.97H5.082v4.888c0 1.257-.85 2.106-1.947 2.106-1.11 0-1.946-.827-1.946-2.106V7.971H0zm7.44 0v7.925h1.13v-.725c.521.532 1.257.86 2.06.86a3.006 3.006 0 0 0 3.034-3.01 3.01 3.01 0 0 0-3.033-3.024 2.86 2.86 0 0 0-2.049.861V7.971H7.439zm9.869 2.038c-1.687 0-2.965 1.37-2.965 3 0 1.72 1.334 3.01 3.066 3.01 1.053 0 1.913-.463 2.49-1.233l-.826-.611c-.43.577-.996.847-1.664.847-.973 0-1.753-.7-1.912-1.64h4.697v-.373c0-1.72-1.222-3-2.886-3zm6.295.068c-.634 0-1.098.294-1.381.758v-.713h-1.131v5.774h1.142V12.61c0-.894.544-1.47 1.291-1.47H24v-1.065h-.396zm-6.319.928c.85 0 1.564.588 1.756 1.47H15.52c.203-.882.916-1.47 1.765-1.47zm-6.732.012c1.086 0 1.98.883 1.98 2.004a1.993 1.993 0 0 1-1.98 2.001A1.989 1.989 0 0 1 8.56 13.02a1.99 1.99 0 0 1 1.992-2.004z"/></svg>
+          <p>Shuttle buses from the stations and park and ride, plus electric Uber Green rides home.</p>
+        </article>
+      </div>
+      <p class="sponsor-note">Concept project: these are proposed target partners. The brands are not affiliated with BeatWave, and their logos belong to their owners.</p>
+      <div class="split">
+        <div class="panel panel--local">
+          <span class="eyebrow">Local Heroes</span>
+          <h2>Built with<br>the valley</h2>
+          <p>More than 80 independent food, drink and market traders from across the Peak District, right in the middle of the arena.</p>
+          <ul>
+            <li>Reduced pitch fees for local businesses</li>
+            <li>Featured in the BeatWave app and social content</li>
+            <li>Clear trader standards and security briefings before the event</li>
+          </ul>
+        </div>
+        <div class="panel panel--partner">
+          <span class="eyebrow">On site</span>
+          <h2>The<br>essentials</h2>
+          <ul>
+            <li class="pk"><span>Wi-Fi</span><span>Free Starlink Wi-Fi everywhere</span></li>
+            <li class="pk"><span>Payments</span><span>Cashless wristbands only</span></li>
+            <li class="pk"><span>Charging</span><span>Free lockers in every campsite</span></li>
+            <li class="pk"><span>Welfare</span><span>24-hour medical and welfare teams</span></li>
+            <li class="pk"><span>Accessibility</span><span>Viewing platforms and free carer tickets</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--cool" id="faq">
+    <div class="wrap faq">
+      <div>
+        <span class="eyebrow">Good to know</span>
+        <h2>FAQ</h2>
+      </div>
+      <div>
+        <details open>
+          <summary>Who can come?</summary>
+          <p>BeatWave is 18+. Bring photo ID to the gate, as everyone is checked.</p>
+        </details>
+        <details>
+          <summary>Will my phone work in the Peak District?</summary>
+          <p>Mobile signal in the Hope Valley is patchy, so free Starlink Wi-Fi covers the whole arena and every campsite. The app also works offline for set times and maps.</p>
+        </details>
+        <details>
+          <summary>Can I still pay in instalments?</summary>
+          <p>Klarna Pay in 6 closed on 28 February so that every plan is paid off before the festival. Tickets bought now are paid in full.</p>
+        </details>
+        <details>
+          <summary>What happens if an artist cancels?</summary>
+          <p>We'll tell you in the app as soon as we know and confirm a replacement act. Your ticket stays valid. Check the ticket terms for refund details.</p>
+        </details>
+        <details>
+          <summary>Is the festival accessible?</summary>
+          <p>Yes. There are accessible viewing platforms, an accessible campsite with flushing toilets, accessible shuttle buses from both stations and a free carer ticket scheme.</p>
+        </details>
+        <details>
+          <summary>Can I bring food and drink?</summary>
+          <p>You can bring food and sealed soft drinks into the campsites. The arena has the Local Heroes food zone and free water refill points.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--hot signup" id="signup">
+    <div class="wrap">
+      <span class="eyebrow">Stay in the loop</span>
+      <h2>Get set-time<br>alerts</h2>
+      <p class="lede" style="margin-top:20px">Sign up for set-time changes, travel updates and the secret set reveal.</p>
+      <form id="signup-form" novalidate>
+        <label for="email" style="position:absolute;left:-9999px">Email address</label>
+        <input id="email" name="email" type="email" placeholder="Your email address" autocomplete="email" required>
+        <button class="btn" type="submit">Sign me up</button>
+      </form>
+      <p class="note" id="signup-note" role="status"></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <a class="logo" href="#top"><svg style="color:var(--yellow)"><use href="#asterisk"/></svg>BeatWave</a>
+      <p style="margin-top:8px">A TechTrendz Events festival · 27–29 August 2027 · Hope Valley, Peak District</p>
+      <p>www.beatwavefest.co.uk · @beatwavefest on TikTok, Instagram and X</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-start">
+      <div class="checks" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <p>Concept website created for a CIM Marketing Executive workshop project.<br>Not a real event.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var target = new Date('2027-08-27T12:00:00+01:00').getTime();
+  var el = {d:document.getElementById('cd-d'),h:document.getElementById('cd-h'),m:document.getElementById('cd-m'),s:document.getElementById('cd-s')};
+  function pad(n){return String(n).padStart(2,'0')}
+  function tick(){
+    var diff = Math.max(0, target - Date.now());
+    el.d.textContent = Math.floor(diff/86400000);
+    el.h.textContent = pad(Math.floor(diff/3600000)%24);
+    el.m.textContent = pad(Math.floor(diff/60000)%60);
+    el.s.textContent = pad(Math.floor(diff/1000)%60);
+  }
+  tick(); setInterval(tick, 1000);
+
+  var form = document.getElementById('signup-form'), note = document.getElementById('signup-note'), input = document.getElementById('email');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!input.value || !input.checkValidity()){
+      note.className = 'note';
+      note.textContent = 'Enter a valid email address, like name@example.com.';
+      input.focus();
+      return;
+    }
+    note.className = 'note ok';
+    note.textContent = "You're signed up. (This is a concept site, so no email has been stored or sent.)";
+    form.reset();
+  });
+})();
+</script>
+
+</body>
+</html>
