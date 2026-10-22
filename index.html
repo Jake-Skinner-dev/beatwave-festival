@@ -183,6 +183,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 /* sponsors */
 .sponsors{display:grid;grid-template-columns:1.4fr repeat(2,1fr);gap:16px}
+.sponsor--headline{grid-row:span 2}
 .sponsor{border:1px solid var(--line);border-radius:4px;padding:24px;display:flex;flex-direction:column;gap:12px;background:rgba(13,10,36,.6);min-width:0}
 .sponsor--headline{grid-row:span 2;background:var(--paper);color:var(--ink);border-color:var(--paper);justify-content:space-between}
 .sponsor .role{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
@@ -195,6 +196,12 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .logo--starlink{height:24px;margin-block:8px}
 .logo--klarna{color:#ffb3c7;height:42px}
 .logo--uber{height:36px;margin-block:2px}
+.logo--spacex{height:26px;margin-block:7px}
+.logo--eats{height:52px}
+.logo--vf{height:48px;color:#6fa8ff}
+.logorow{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.logorow .plogo{align-self:center}
+.brands{font-size:.8rem;color:var(--muted);font-weight:600}
 .sponsor-note{font-size:.8rem;color:var(--muted);margin:14px 0 48px}
 @media (max-width:900px){.sponsors{grid-template-columns:1fr 1fr}.sponsor--headline{grid-column:1/-1;grid-row:auto}}
 @media (max-width:540px){.sponsors{grid-template-columns:1fr}}
@@ -344,7 +351,7 @@ footer .logo{color:var(--paper)}
       <h1>Beat<span class="row2">Wave</span></h1>
       <div class="hero-grid">
         <div>
-          <p class="lede">Linkin Park × Fred again.., <strong>Charli XCX</strong>, <strong>Dave &amp; Drake</strong> and <strong>Olivia Dean</strong>. Five stages, 500,000 fans and three days in the Peak District.</p>
+          <p class="lede">Linkin Park × Fred again.., <strong>Charli XCX</strong>, <strong>Dave &amp; Drake</strong>, <strong>Skepta &amp; JME</strong> and <strong>Olivia Dean</strong>. Five stages, 500,000 fans and three days in the Peak District.</p>
           <div class="cta-row">
             <a class="btn" href="#lineup">See the full line-up</a>
             <a class="btn btn--ghost" href="#tickets">Final tickets</a>
@@ -366,8 +373,8 @@ footer .logo{color:var(--paper)}
 
   <div class="ticker" aria-hidden="true">
     <div class="ticker-track">
-      <span>Linkin Park × Fred again.. <svg width="22" height="22"><use href="#asterisk"/></svg> Charli XCX <svg width="22" height="22"><use href="#asterisk"/></svg> Dave &amp; Drake <svg width="22" height="22"><use href="#asterisk"/></svg> Olivia Dean <svg width="22" height="22"><use href="#asterisk"/></svg> Hope Valley · 27–29 Aug <svg width="22" height="22"><use href="#asterisk"/></svg></span>
-      <span>Linkin Park × Fred again.. <svg width="22" height="22"><use href="#asterisk"/></svg> Charli XCX <svg width="22" height="22"><use href="#asterisk"/></svg> Dave &amp; Drake <svg width="22" height="22"><use href="#asterisk"/></svg> Olivia Dean <svg width="22" height="22"><use href="#asterisk"/></svg> Hope Valley · 27–29 Aug <svg width="22" height="22"><use href="#asterisk"/></svg></span>
+      <span>Linkin Park × Fred again.. <svg width="22" height="22"><use href="#asterisk"/></svg> Charli XCX <svg width="22" height="22"><use href="#asterisk"/></svg> Dave &amp; Drake <svg width="22" height="22"><use href="#asterisk"/></svg> Skepta &amp; JME <svg width="22" height="22"><use href="#asterisk"/></svg> Olivia Dean <svg width="22" height="22"><use href="#asterisk"/></svg> Hope Valley · 27–29 Aug <svg width="22" height="22"><use href="#asterisk"/></svg></span>
+      <span>Linkin Park × Fred again.. <svg width="22" height="22"><use href="#asterisk"/></svg> Charli XCX <svg width="22" height="22"><use href="#asterisk"/></svg> Dave &amp; Drake <svg width="22" height="22"><use href="#asterisk"/></svg> Skepta &amp; JME <svg width="22" height="22"><use href="#asterisk"/></svg> Olivia Dean <svg width="22" height="22"><use href="#asterisk"/></svg> Hope Valley · 27–29 Aug <svg width="22" height="22"><use href="#asterisk"/></svg></span>
     </div>
   </div>
 
@@ -419,12 +426,13 @@ footer .logo{color:var(--paper)}
         <article class="day">
           <div class="day-head"><h3>Sunday</h3><span>29 August</span></div>
           <div class="headliner">
-            <span class="eyebrow">Headliner · The Wave · 21:30</span>
+            <span class="eyebrow">Headliners · The Wave · 21:30</span>
             <strong>Dave &amp; Drake</strong>
-            <small>An exclusive joint set. Plus Olivia Dean's sunset set.</small>
+            <small>An exclusive joint set. Plus Skepta &amp; JME at 20:00 and Olivia Dean's sunset set.</small>
           </div>
           <ul class="acts">
-            <li><span class="stg">The Wave</span><span><b>Central Cee</b><em>19:30</em></span></li>
+            <li><span class="stg">The Wave</span><span><b>Skepta &amp; JME</b><em>Co-headliners · 20:00</em></span></li>
+            <li><span class="stg">The Wave</span><span><b>Central Cee</b><em>18:30</em></span></li>
             <li><span class="stg">Sunset</span><span><b>Olivia Dean</b><em>Grammy winner 2026 · 19:45</em></span></li>
             <li><span class="stg">Pulse</span><span><b>Mau P</b><em>20:30</em></span></li>
             <li><span class="stg">Pulse</span><span><b>Chris Lake</b><em>22:00</em></span></li>
@@ -448,7 +456,7 @@ footer .logo{color:var(--paper)}
       </div>
       <div class="stages">
         <div class="stage"><span class="n">1</span><h3>The Wave</h3><p>The main stage, set in a natural bowl in the valley.</p><span class="by">Livestreamed on Apple Music</span></div>
-        <div class="stage"><span class="n">2</span><h3>Pulse</h3><p>The house and dance tent, with giant LED screens.</p><span class="by">Visuals powered by Intel</span></div>
+        <div class="stage"><span class="n">2</span><h3>Pulse</h3><p>The house and dance tent, with giant LED screens.</p><span class="by">Lasers and giant LED screens</span></div>
         <div class="stage"><span class="n">3</span><h3>Frequency</h3><p>New music and rising stars, all day, every day.</p><span class="by">Curated with Apple Music</span></div>
         <div class="stage"><span class="n">4</span><h3>Sunset</h3><p>An open-air stage facing the hills for golden-hour sets.</p><span class="by">Runs on solar power</span></div>
         <div class="stage"><span class="n">5</span><h3>Afterdark</h3><p>Late-night sets once the main stages finish.</p><span class="by">Until 3am</span></div>
@@ -475,7 +483,7 @@ footer .logo{color:var(--paper)}
           <p class="kicker">Immersive stages and tech you'll actually use.</p>
           <ul>
             <li>The BeatWave app: set times, alerts, live maps and cashless payments</li>
-            <li>Free Starlink Wi-Fi across the whole site</li>
+            <li>Free Starlink Wi-Fi from SpaceX across the whole site</li>
             <li>The AR Playground and a drone light show over the valley</li>
           </ul>
         </div>
@@ -539,7 +547,7 @@ footer .logo{color:var(--paper)}
           <div class="price">£1,250</div>
           <p class="opens">Join the app waiting list for returns.</p>
           <ul>
-            <li>Pre-pitched bell tent in the VIP Village</li>
+            <li>Pre-pitched The North Face tent in the VIP Village</li>
             <li>Fast-track entry and VIP viewing platform</li>
             <li>Private bars, lounge and hot showers</li>
           </ul>
@@ -601,7 +609,7 @@ footer .logo{color:var(--paper)}
         <ul class="green">
           <li><b>Energy</b><span>The Sunset stage runs on solar panels and batteries. Every other stage uses renewable power or HVO biofuel instead of diesel.</span></li>
           <li><b>Cups</b><span>Reusable cups with a £3 deposit, paid back to your wristband when you return them.</span></li>
-          <li><b>Tents</b><span>No Tent Left Behind: a £10 tent deposit, refunded when you take your tent home. Tents left behind go to charity.</span></li>
+          <li><b>Tents</b><span>No Tent Left Behind: a £10 tent deposit, refunded when you take your tent home. Or hire a The North Face tent, pitched for you and reused every year.</span></li>
           <li><b>Water</b><span>Free refill points across the arena and campsites. Bring a bottle.</span></li>
           <li><b>Land</b><span>Every field is restored after the festival, as agreed with the landowners and the National Park Authority.</span></li>
         </ul>
@@ -622,27 +630,37 @@ footer .logo{color:var(--paper)}
         <article class="sponsor sponsor--headline">
           <span class="role">Headline partner</span>
           <svg class="plogo logo--apple" viewBox="2.2 0 19.6 24" role="img" aria-label="Apple" fill="currentColor"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
-          <p>BeatWave presented by Apple Music: main stage livestreams, artist sessions and the official playlists.</p>
-        </article>
-        <article class="sponsor">
-          <span class="role">Tech partner</span>
-          <svg class="plogo logo--intel" viewBox="0 7.35 24 9.3" role="img" aria-label="Intel" fill="currentColor"><path d="M20.42 7.345v9.18h1.651v-9.18zM0 7.475v1.737h1.737V7.474zm9.78.352v6.053c0 .513.044.945.13 1.292.087.34.235.618.44.828.203.21.475.359.803.451.334.093.754.136 1.255.136h.216v-1.533c-.24 0-.445-.012-.593-.037a.672.672 0 0 1-.39-.173.693.693 0 0 1-.173-.377 4.002 4.002 0 0 1-.037-.606v-2.182h1.193v-1.416h-1.193V7.827zm-3.505 2.312c-.396 0-.76.08-1.082.241-.327.161-.6.384-.822.668l-.087.117v-.902H2.658v6.256h1.639v-3.214c.018-.588.16-1.02.433-1.299.29-.297.642-.445 1.044-.445.476 0 .841.149 1.082.433.235.284.359.686.359 1.2v3.324h1.663V12.97c.006-.89-.229-1.595-.686-2.09-.458-.495-1.1-.742-1.917-.742zm10.065.006a3.252 3.252 0 0 0-2.306.946c-.29.29-.525.637-.692 1.033a3.145 3.145 0 0 0-.254 1.273c0 .452.08.878.241 1.274.161.395.39.742.674 1.032.284.29.637.526 1.045.693.408.173.86.26 1.342.26 1.397 0 2.262-.637 2.782-1.23l-1.187-.904c-.248.297-.841.699-1.583.699-.464 0-.847-.105-1.138-.321a1.588 1.588 0 0 1-.593-.872l-.019-.056h4.915v-.587c0-.451-.08-.872-.235-1.267a3.393 3.393 0 0 0-.661-1.033 3.013 3.013 0 0 0-1.02-.692 3.345 3.345 0 0 0-1.311-.248zm-16.297.118v6.256h1.651v-6.256zm16.278 1.286c1.132 0 1.664.797 1.664 1.255l-3.32.006c0-.458.525-1.255 1.656-1.261zm7.073 3.814a.606.606 0 0 0-.606.606.606.606 0 0 0 .606.606.606.606 0 0 0 .606-.606.606.606 0 0 0-.606-.606zm-.008.105a.5.5 0 0 1 .002 0 .5.5 0 0 1 .5.501.5.5 0 0 1-.5.5.5.5 0 0 1-.5-.5.5.5 0 0 1 .498-.5zm-.233.155v.699h.13v-.285h.093l.173.285h.136l-.18-.297a.191.191 0 0 0 .118-.056c.03-.03.05-.074.05-.136 0-.068-.02-.117-.063-.154-.037-.038-.105-.056-.185-.056zm.13.099h.154c.019 0 .037.006.056.012a.064.064 0 0 1 .037.031c.013.013.012.031.012.056a.124.124 0 0 1-.012.055.164.164 0 0 1-.037.031c-.019.006-.037.013-.056.013h-.154Z"/></svg>
-          <p>Powers the AR Playground, festival app, giant screens and a drone light show over the valley.</p>
+          <p>BeatWave presented by Apple Music: main stage livestreams, artist sessions, the official playlists and the AR Playground.</p>
         </article>
         <article class="sponsor">
           <span class="role">Connectivity partner</span>
-          <svg class="plogo logo--starlink" viewBox="8 45.5 304 39" role="img" aria-label="Starlink" fill="currentColor"><path d="m 10.0029,71.7839 h 6.3063 c 0.2252,2.027 0.9009,3.3784 1.8018,4.0541 0.9009,0.9008 2.4774,1.1261 4.5044,1.1261 3.8288,0 5.6306,-1.5766 5.6306,-4.5045 0,-1.3513 -0.4504,-2.4774 -1.1261,-3.1531 -1.995905,-1.553778 -4.567208,-1.70507 -6.9819,-2.027 -6.3063,-1.1261 -9.4594,-4.2793 -9.4594,-9.6846 0,-3.1531 1.1261,-5.8558 3.1531,-7.6576 2.2522,-1.8018 4.9549,-2.9279 8.5585,-2.9279 3.3783,0 6.081,0.9009 8.108,2.7027 2.027,1.8018 3.1532,4.5045 3.3784,7.6576 h -6.3063 c 0,-1.8018 -0.6756,-2.9279 -1.5765,-3.6036 C 25.0929,53.0904 23.7415,52.64 22.165,52.64 c -1.8018,0 -2.9279,0.4504 -3.8288,1.1261 -0.9009,0.6757 -1.3513,1.8018 -1.3513,3.3783 0,1.1262 0.4504,2.2523 1.1261,2.9279 0.6756,0.6757 2.027,1.1262 3.6035,1.5766 l 3.6036,0.6757 c 6.081,1.1261 9.0089,4.2792 9.0089,9.9098 0,3.6035 -1.1261,6.3062 -3.3783,8.108 -2.2523,1.8018 -5.1802,2.7027 -9.0089,2.7027 -7.359467,0.296389 -11.311292,-4.27196 -11.9369,-11.2612 z"/><path d="M 65.1825,53.3157 V 82.5946 H 58.4258 V 53.3157 h -9.0089 v -5.8559 h 24.5493 v 5.8559 z"/><path d="m 93.1101,75.6127 -2.027,6.7567 H 84.1012 L 96.4885,47.4598 h 5.4055 l 12.387,34.9096 h -6.982 l -2.027,-6.7567 z M 99.1912,56.694 94.9119,70.2074 h 8.5581 z"/><path d="m 136.803,68.4056 v 14.189 h -6.531 V 47.6851 h 13.288 c 3.378,0 6.081,0.9008 8.108,2.7026 2.027,1.8018 3.153,4.5045 3.153,7.6576 0,2.2523 -0.45,4.2792 -1.576,5.8558 -1.126,1.5766 -2.703,2.7027 -4.505,3.6036 l 7.658,15.3152 h -7.658 l -6.531,-14.1891 h -5.406 z m 6.307,-5.6306 c 1.576,0 2.702,-0.4504 3.603,-1.3513 0.901,-0.9009 1.352,-2.027 1.352,-3.6036 0,-1.3513 -0.451,-2.4775 -1.352,-3.3784 -0.901,-0.9008 -2.027,-1.3513 -3.603,-1.3513 h -6.307 v 9.6846 z"/><path d="m 179.371,47.4598 v 29.279 h 15.315 v 5.8558 H 172.839 V 47.6851 h 6.532 z"/><path d="m 218.559,47.4598 v 35.1348 h -6.531 V 47.6851 h 6.531 z"/><path d="m 263.829,82.5946 h -6.531 L 244.46,60.748 v 21.8466 h -6.982 V 47.6851 h 6.532 l 12.837,21.8466 V 47.6851 h 6.532 v 34.9095 z"/><path d="m 289.054,65.885 v 16.4844 h -6.531 V 47.4598 h 6.531 V 64.07 l 12.162,-16.6102 h 7.883 L 296.538,65.024 310,82.3694 h -7.658 z"/></svg>
-          <p>Satellite Wi-Fi across the whole site, so you stay connected in the Peak District.</p>
+          <svg class="plogo logo--spacex" viewBox="0 0 331.644 40.825" role="img" aria-label="SpaceX" fill="currentColor"><g>
+<path  d="M77.292,15.094H49.249l-1.039,0.777v24.947h7.763v-9.355l0.741-0.664h20.579   c5.196,0,7.632-1.398,7.632-4.985v-5.728C84.924,16.493,82.489,15.094,77.292,15.094 M77.292,24.317   c0,1.69-1.118,2.041-3.554,2.041H56.799l-0.827-0.804V20.21l0.741-0.678h17.025c2.436,0,3.554,0.347,3.554,2.045V24.317z"/>
+<polyline  points="99.081,19.813 105.761,29.6 105.391,30.548 90.618,30.548 86.847,35.187 108.837,35.187 110.361,36.115 113.775,40.824 122.659,40.824 103.186,14.775"/>
+<polyline  points="187.418,35.757 187.418,28.833 188.217,28.143 203.079,28.143 203.079,23.734 179.524,23.734 179.524,40.823 214.27,40.823 214.27,36.435 188.252,36.435"/>
+<rect x="179.524" y="15.094"  width="35.113" height="4.848"/>
+<path  d="M140.361,19.685h28.288c-0.436-3.597-2.668-4.595-8.33-4.595H140.06c-6.389,0-8.427,1.247-8.427,6.082   v13.565c0,4.84,2.038,6.087,8.427,6.087h20.259c5.745,0,7.945-1.079,8.095-4.81h-28.053l-0.832-0.783V20.209"/>
+<path  d="M29.333,25.118H8.754l-0.606-0.667v-4.402l0.603-0.466h27.742l0.379-0.927   c-0.945-2.431-3.392-3.565-7.936-3.565H9.665c-6.385,0-8.426,1.247-8.426,6.082v2.844c0,4.841,2.041,6.086,8.426,6.086h20.533   l0.645,0.566v4.602l-0.526,0.718H6.83v-0.022H0.678c0,0-0.704,0.353-0.677,0.518c0.525,3.382,2.829,4.34,8.345,4.34h20.987   c6.384,0,8.486-1.247,8.486-6.087v-3.543C37.819,26.363,35.717,25.118,29.333,25.118"/>
+<path  d="M236.725,14.988h-11.551l-0.627,1.193l12.828,9.351c2.43-1.407,5.074-2.833,7.95-4.24"/>
+<path  d="M247.075,32.603l11.275,8.222h11.692l0.484-1.089L253.69,27.413   C251.454,29.054,249.245,30.787,247.075,32.603"/>
+<path opacity=".6" d="M235.006,40.806h-10.451l-0.883-1.383C230.778,32.562,262.56,3.151,331.644,0   C331.644,0,273.658,1.956,235.006,40.806"/>
+</g></svg>
+          <p>Starlink satellite Wi-Fi across the whole site, so you stay connected in the Peak District.</p>
+        </article>
+        <article class="sponsor">
+          <span class="role">Travel &amp; food partner</span>
+          <div class="logorow"><svg class="plogo logo--uber" viewBox="0 7.97 24 8.05" role="img" aria-label="Uber" fill="currentColor"><path d="M0 7.97v4.958c0 1.867 1.302 3.101 3 3.101.826 0 1.562-.316 2.094-.87v.736H6.27V7.97H5.082v4.888c0 1.257-.85 2.106-1.947 2.106-1.11 0-1.946-.827-1.946-2.106V7.971H0zm7.44 0v7.925h1.13v-.725c.521.532 1.257.86 2.06.86a3.006 3.006 0 0 0 3.034-3.01 3.01 3.01 0 0 0-3.033-3.024 2.86 2.86 0 0 0-2.049.861V7.971H7.439zm9.869 2.038c-1.687 0-2.965 1.37-2.965 3 0 1.72 1.334 3.01 3.066 3.01 1.053 0 1.913-.463 2.49-1.233l-.826-.611c-.43.577-.996.847-1.664.847-.973 0-1.753-.7-1.912-1.64h4.697v-.373c0-1.72-1.222-3-2.886-3zm6.295.068c-.634 0-1.098.294-1.381.758v-.713h-1.131v5.774h1.142V12.61c0-.894.544-1.47 1.291-1.47H24v-1.065h-.396zm-6.319.928c.85 0 1.564.588 1.756 1.47H15.52c.203-.882.916-1.47 1.765-1.47zm-6.732.012c1.086 0 1.98.883 1.98 2.004a1.993 1.993 0 0 1-1.98 2.001A1.989 1.989 0 0 1 8.56 13.02a1.99 1.99 0 0 1 1.992-2.004z"/></svg><svg class="plogo logo--eats" viewBox="0 0 24 24" role="img" aria-label="Uber Eats" fill="currentColor"><path d="M0 2.8645v4.9972c0 1.8834 1.3315 3.1297 3.0835 3.1297a2.9652 2.9652 0 0 0 2.1502-.876v.7425H6.445V2.8645H5.223v4.9339c0 1.2642-.8696 2.1198-1.9954 2.122-1.1386-.0023-1.997-.834-1.997-2.122V2.8645zm7.3625 0v7.9934h1.163v-.7318a2.9915 2.9915 0 0 0 2.1177.876c1.714.048 3.1295-1.3283 3.1295-3.0429s-1.4155-3.091-3.1295-3.0429a2.9674 2.9674 0 0 0-2.107.876V2.8645zm9.8857 2.0561c-1.6752-.0074-3.0369 1.3492-3.0356 3.0245 0 1.7366 1.3732 3.0373 3.1537 3.0373a3.123 3.123 0 0 0 2.5578-1.2438l-.8495-.6177a2.0498 2.0498 0 0 1-1.7083.8585c-.9763.0126-1.8147-.6915-1.971-1.6553h4.818v-.379c0-1.734-1.254-3.0238-2.9638-3.0245zm6.1632.0667a1.5943 1.5943 0 0 0-1.376.7657v-.7186h-1.163v5.8235h1.1741V7.5465c0-.9023.5581-1.4847 1.3268-1.4847h.4949V4.9886c-.1576.0013-.3186-.0009-.4568-.0013zm-6.2034.944a1.844 1.844 0 0 1 1.8337 1.486H15.424a1.844 1.844 0 0 1 1.784-1.486zm-6.6589.0056c1.1223-.0084 2.0365.8992 2.0364 2.0215-.0026 1.1203-.914 2.0258-2.0343 2.021a2.0151 2.0151 0 0 1-1.4159-.5987A2.0152 2.0152 0 0 1 8.55 7.9592a2.0152 2.0152 0 0 1 .5838-1.422 2.0152 2.0152 0 0 1 1.4153-.6003zM0 12.9864v7.9716h5.7222v-1.3666H1.5458v-1.971h4.0647v-1.314H1.5458v-1.9556h4.1764v-1.3644zm14.5608.4097v1.6861h-1.1519v1.338h1.1545v3.143c0 .7927.5712 1.4209 1.6005 1.4209h1.6425L17.8 19.646h-1.1412c-.3482 0-.5714-.1509-.5714-.464v-2.7683H17.8v-1.3316h-1.7062v-1.686zm-5.2974 1.5275c-1.7348-.0103-3.141 1.4035-3.1214 3.1382.0196 1.7346 1.4575 3.1163 3.1915 3.0668a2.9915 2.9915 0 0 0 1.912-.6655v.532h1.5175v-5.9129h-1.509v.5257a3.0047 3.0047 0 0 0-1.9205-.6835c-.0244-.0007-.0492-.0006-.0701-.0008zm11.771.0077c-1.5855 0-2.7002.6437-2.7002 1.8854 0 .8607.6132 1.4213 1.936 1.695l1.4478.3286c.5694.1095.7224.2585.7224.4906 0 .3701-.438.6022-1.1279.6022-.876 0-1.3774-.1907-1.5723-.8477h-1.533c.219 1.2307 1.1563 2.05 3.0484 2.05h.0022c1.752 0 2.7422-.819 2.7422-1.9534 0-.8059-.5847-1.4084-1.8089-1.6668l-1.2943-.2605c-.7511-.1358-.988-.2738-.988-.5454 0-.357.3616-.5757 1.0295-.5757.7227 0 1.2527.1925 1.406.8473h1.5175c-.0854-1.2286-.9899-2.0497-2.8273-2.0497zM9.467 16.1815c1.0092.0096 1.8188.8369 1.8067 1.8461.0014 1.0046-.8198 1.816-1.8243 1.8025-1.0075-.0048-1.8203-.8256-1.8155-1.833.0048-1.0076.8255-1.8204 1.833-1.8156z"/></svg></div>
+          <p>Uber shuttles from the stations and park and ride. Uber Eats delivers food from Local Heroes traders to your campsite.</p>
+        </article>
+        <article class="sponsor">
+          <span class="role">Outdoor &amp; camping partner</span>
+          <div class="logorow"><svg class="plogo logo--vf" viewBox="0 0 90 90" role="img" aria-label="VF Corporation" fill="currentColor"><path fill-rule="evenodd" d="m 84.836,24.072 -3.466,8.473 -18.057,0.011 3.506,-8.697 H 84.727 C 77.157,9.666 62.21,0 45,0 27.791,0 12.845,9.663 5.275,23.856 h 13.598 c 2.617,0 4.214,1.243 4.758,2.978 l 10.744,30.392 1.085,3.406 1.253,-3.551 9.49,-24.311 c 1.947,-4.68 2.17,-8.914 12.103,-8.914 h 3.57 l -8.831,21.58 h 22.183 l -3.562,8.69 -22.18,0.008 -10.848,26.507 H 32.017 L 11.669,30.297 C 10.35,27.21 8.46,26.068 4.57,25.23 A 44.807,44.807 0 0 0 0,45 C 0,69.853 20.147,90 45,90 69.853,90 90,69.853 90,45 A 44.787,44.787 0 0 0 84.836,24.072"/></svg><span class="brands">The North Face · Vans · Timberland</span></div>
+          <p>The North Face tents in the VIP Village and tent hire, plus waterproofs, boots and a Vans skate area.</p>
         </article>
         <article class="sponsor">
           <span class="role">Payments partner</span>
           <svg class="plogo logo--klarna" viewBox="0 2 24 20" role="img" aria-label="Klarna" fill="currentColor"><path d="M4.592 2v20H0V2h4.592zm11.46 0c0 4.194-1.583 8.105-4.415 11.068l-.278.283L17.702 22h-5.668l-6.893-9.4 1.779-1.332c2.858-2.14 4.535-5.378 4.637-8.924L11.562 2h4.49zM21.5 17a2.5 2.5 0 110 5 2.5 2.5 0 010-5z"/></svg>
           <p>Cashless wristbands and Klarna fast lanes at the bars. Pay in 6 was only available at BeatWave.</p>
-        </article>
-        <article class="sponsor">
-          <span class="role">Travel partner</span>
-          <svg class="plogo logo--uber" viewBox="0 7.97 24 8.05" role="img" aria-label="Uber" fill="currentColor"><path d="M0 7.97v4.958c0 1.867 1.302 3.101 3 3.101.826 0 1.562-.316 2.094-.87v.736H6.27V7.97H5.082v4.888c0 1.257-.85 2.106-1.947 2.106-1.11 0-1.946-.827-1.946-2.106V7.971H0zm7.44 0v7.925h1.13v-.725c.521.532 1.257.86 2.06.86a3.006 3.006 0 0 0 3.034-3.01 3.01 3.01 0 0 0-3.033-3.024 2.86 2.86 0 0 0-2.049.861V7.971H7.439zm9.869 2.038c-1.687 0-2.965 1.37-2.965 3 0 1.72 1.334 3.01 3.066 3.01 1.053 0 1.913-.463 2.49-1.233l-.826-.611c-.43.577-.996.847-1.664.847-.973 0-1.753-.7-1.912-1.64h4.697v-.373c0-1.72-1.222-3-2.886-3zm6.295.068c-.634 0-1.098.294-1.381.758v-.713h-1.131v5.774h1.142V12.61c0-.894.544-1.47 1.291-1.47H24v-1.065h-.396zm-6.319.928c.85 0 1.564.588 1.756 1.47H15.52c.203-.882.916-1.47 1.765-1.47zm-6.732.012c1.086 0 1.98.883 1.98 2.004a1.993 1.993 0 0 1-1.98 2.001A1.989 1.989 0 0 1 8.56 13.02a1.99 1.99 0 0 1 1.992-2.004z"/></svg>
-          <p>Shuttle buses from the stations and park and ride, plus electric Uber Green rides home.</p>
         </article>
       </div>
       <p class="sponsor-note">Concept project: these are proposed target partners. The brands are not affiliated with BeatWave, and their logos belong to their owners.</p>
